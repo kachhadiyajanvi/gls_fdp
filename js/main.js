@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             if (!preloader.classList.contains('hidden')) {
                 preloader.classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflowY = 'hidden';
             }
         }, 5000);
     }
@@ -108,6 +108,38 @@ document.addEventListener('DOMContentLoaded', () => {
 function submitForm(event) {
     event.preventDefault();
     const form = document.getElementById('registrationForm');
+
+    // Manual Validation
+    const inputs = form.querySelectorAll('input, select');
+    for (let input of inputs) {
+        if (input.hasAttribute('required') && !input.value.trim()) {
+            const label = input.closest('.form-group').querySelector('label').innerText.replace('*', '').trim();
+            showModal('error', 'Missing Information', `${label} is required.`);
+            input.focus();
+            return false;
+        }
+
+        // Email Validation
+        if (input.type === 'email' && input.value) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(input.value)) {
+                showModal('error', 'Invalid Email', 'Please enter a valid email address (e.g., hello@example.com).');
+                input.focus();
+                return false;
+            }
+        }
+
+        // Mobile Validation
+        if (input.name === 'mobile' && input.value) {
+            const mobilePattern = /^[0-9]{10}$/;
+            if (!mobilePattern.test(input.value)) {
+                showModal('error', 'Invalid Mobile', 'Please enter a valid 10-digit mobile number.');
+                input.focus();
+                return false;
+            }
+        }
+    }
+
     const formData = new FormData(form);
     const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -121,16 +153,19 @@ function submitForm(event) {
     })
         .then(response => response.text())
         .then(data => {
-            if (data.trim() === "success") {
-                showModal();
+            const result = data.trim();
+            if (result === "success") {
+                showModal('success', 'Registration Successful!', 'Thank you for registering. We have received your details.');
                 form.reset();
+            } else if (result.includes("already registered")) {
+                showModal('error', 'Registration Failed', 'This email address is already registered with us.');
             } else {
-                alert("Error: " + data);
+                showModal('error', 'An Error Occurred', result);
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert("An error occurred. Please try again.");
+            showModal('error', 'Connection Error', 'Unable to reach the server. Please try again.');
         })
         .finally(() => {
             submitBtn.disabled = false;
@@ -141,15 +176,39 @@ function submitForm(event) {
 }
 
 // Modal Functions
-function showModal() {
-    const modal = document.getElementById('successModal');
+function showModal(type, title, message) {
+    const modal = document.getElementById('messageModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalContent = modal.querySelector('.modal-content');
+
     if (modal) {
+        // Set Content
+        modalTitle.textContent = title;
+        modalMessage.textContent = message;
+
+        // Reset Classes
+        modalIcon.className = 'status-icon';
+        modalContent.classList.remove('success-mode', 'error-mode');
+
+        // Apply Styles based on Type
+        if (type === 'success') {
+            modalIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+            modalIcon.classList.add('success');
+            modalContent.classList.add('success-mode');
+        } else {
+            modalIcon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+            modalIcon.classList.add('error');
+            modalContent.classList.add('error-mode');
+        }
+
         modal.classList.remove('hidden');
     }
 }
 
 function closeModal() {
-    const modal = document.getElementById('successModal');
+    const modal = document.getElementById('messageModal');
     if (modal) {
         modal.classList.add('hidden');
     }
