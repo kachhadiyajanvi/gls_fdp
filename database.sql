@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS gls_fdp;
+USE gls_fdp;
+
+CREATE TABLE IF NOT EXISTS registrations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) NOT NULL,
+    full_name VARCHAR(50) NOT NULL,
+    mobile BIGINT(10) NOT NULL,
+    gender VARCHAR(5) NOT NULL,
+    dob DATE NOT NULL,
+    institute VARCHAR(50) NOT NULL,
+    university VARCHAR(50) NOT NULL,
+    experience VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
