@@ -648,7 +648,7 @@
                         </div>
                     </div>
 
-                    <div id="form-feedback" style="display: none; text-align: center; margin-bottom: 20px; color: #ef4444; font-weight: 500; background: #fef2f2; padding: 10px; border-radius: 10px; border: 1px solid #fee2e2;"></div>
+                    <div id="form-feedback" style="display: none; text-align: center; margin-bottom: 20px; color: #ef4444; font-weight: 600; font-size: 0.95rem;"></div>
 
                     <div style="margin-top: 40px; text-align: center;">
                         <button type="submit" class="btn" style="background: var(--primary-color); padding: 18px 50px; font-size: 16px;">

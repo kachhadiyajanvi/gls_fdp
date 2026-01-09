@@ -1376,7 +1376,7 @@ body {
     color: #ef4444;
     font-size: 0.85rem;
     margin-top: 5px;
-    display: none;
+    display: Block;
     /* Hidden by default */
     align-items: center;
     gap: 5px;

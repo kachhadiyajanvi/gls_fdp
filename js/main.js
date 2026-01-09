@@ -98,7 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             if (!preloader.classList.contains('hidden')) {
                 preloader.classList.add('hidden');
-                document.body.style.overflowY = 'hidden';
+                document.body.style.overflowY = 'auto';
+                document.body.style.overflowX = 'hidden';
             }
         }, 5000);
     }
@@ -106,42 +107,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 7. AJAX Form Handling
 function submitForm(event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
     const form = document.getElementById('registrationForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-    // Manual Validation
+    // --- Custom Inline Validation ---
+    let isValid = true;
     const inputs = form.querySelectorAll('input, select');
-    for (let input of inputs) {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            const label = input.closest('.form-group').querySelector('label').innerText.replace('*', '').trim();
-            showModal('error', 'Missing Information', `${label} is required.`);
-            input.focus();
-            return false;
-        }
 
-        // Email Validation
-        if (input.type === 'email' && input.value) {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(input.value)) {
-                showModal('error', 'Invalid Email', 'Please enter a valid email address (e.g., hello@example.com).');
-                input.focus();
-                return false;
-            }
-        }
+    // 1. Reset Errors
+    inputs.forEach(input => {
+        input.classList.remove('is-invalid');
+        // field-error text is handled via sibling, no need to hide manualy as CSS does it
+    });
 
-        // Mobile Validation
-        if (input.name === 'mobile' && input.value) {
-            const mobilePattern = /^[0-9]{10}$/;
-            if (!mobilePattern.test(input.value)) {
-                showModal('error', 'Invalid Mobile', 'Please enter a valid 10-digit mobile number.');
-                input.focus();
-                return false;
-            }
+    // 2. Check Fields
+    inputs.forEach(input => {
+        const val = input.value.trim();
+
+        // Required
+        if (input.hasAttribute('required') && !val) {
+            isValid = false;
+            showError(input, 'This field is required');
         }
+        // Email
+        else if (val && input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+            isValid = false;
+            showError(input, 'Please enter a valid email');
+        }
+        // Mobile (10 digits)
+        else if (val && input.name === 'mobile' && !/^\d{10}$/.test(val)) {
+            isValid = false;
+            showError(input, 'Please enter a 10-digit mobile number');
+        }
+    });
+
+    if (!isValid) {
+        // Shake animation replay for UX
+        const firstInvalid = form.querySelector('.is-invalid');
+        if (firstInvalid) {
+            firstInvalid.focus();
+            firstInvalid.style.animation = 'none';
+            firstInvalid.offsetHeight; /* reflow */
+            firstInvalid.style.animation = 'shake 0.3s ease-in-out';
+        }
+        return false;
     }
 
+    // --- Submit if Valid ---
     const formData = new FormData(form);
-    const submitBtn = form.querySelector('button[type="submit"]');
 
     // Disable button
     submitBtn.disabled = true;
@@ -158,22 +172,53 @@ function submitForm(event) {
                 showModal('success', 'Registration Successful!', 'Thank you for registering. We have received your details.');
                 form.reset();
             } else if (result.includes("already registered")) {
-                showModal('error', 'Registration Failed', 'This email address is already registered with us.');
+                const emailInput = form.querySelector('input[type="email"]');
+                showError(emailInput, 'This email is already registered.');
+                emailInput.focus();
+                // Shake effect
+                emailInput.style.animation = 'none';
+                emailInput.offsetHeight;
+                emailInput.style.animation = 'shake 0.3s ease-in-out';
             } else {
-                showModal('error', 'An Error Occurred', result);
+                // General error in the feedback div
+                const feedback = document.getElementById('form-feedback');
+                if (feedback) {
+                    feedback.style.display = 'block';
+                    feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + result;
+                    // Reset animations if any
+                    feedback.style.animation = 'none';
+                    feedback.offsetHeight;
+                    feedback.style.animation = 'shake 0.3s ease-in-out';
+                } else {
+                    alert(result);
+                }
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            showModal('error', 'Connection Error', 'Unable to reach the server. Please try again.');
+            const feedback = document.getElementById('form-feedback');
+            if (feedback) {
+                feedback.style.display = 'block';
+                feedback.innerText = 'Connection Error: ' + error.message;
+            }
         })
         .finally(() => {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Complete Registration <i class="fas fa-arrow-right"></i>';
+            submitBtn.innerHTML = 'Confirm Registration <i class="fas fa-check-circle"></i>';
         });
 
     return false;
 }
+
+function showError(input, message) {
+    input.classList.add('is-invalid');
+    const sm = input.nextElementSibling;
+    if (sm && sm.classList.contains('field-error')) {
+        sm.innerText = message;
+    }
+}
+
+
 
 // Modal Functions
 function showModal(type, title, message) {
