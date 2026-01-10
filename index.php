@@ -16,7 +16,7 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
     <!-- Message Modal -->
@@ -184,7 +184,7 @@
     <section id="resource-persons" class="section bg-light" style="padding-top: 50px;">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Speakers</h2>
+                <h2 class="section-title">Speaker</h2>
             </div>
             
             <div class="speakerGrid" style="max-width: 1200px; margin: 0 auto; gap: 30px;">
@@ -221,7 +221,7 @@
                 <!-- Speaker 3 -->
                 <div class="speaker-horizontal variant-blue" data-aos="fade-up">
                     <div class="speaker-content-left">
-                        <h3>Ms. Rachana Chhajad</h3>
+                        <h3>Dr. Rachana Chhajad</h3>
                         <p><i class="fas fa-user-graduate"></i> MTech, Pursuing Ph.D.</p>
                         <p style="margin-top: 5px;"><i class="fas fa-briefcase"></i> Assistant Professor, PICT, Pune</p>
                         <p style="margin-top: 5px;"><i class="fas fa-building"></i> IT</p>
@@ -229,7 +229,7 @@
                         <a href="mailto:rrchhajed@pict.edu" class="speaker-email"><i class="fas fa-envelope"></i> rrchhajed@pict.edu</a>
                     </div>
                     <div class="speaker-image-right">
-                        <img src="images/speakers/rachana_chhajad.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rachana+Chhajad&background=random'" alt="Ms. Rachana Chhajad">
+                        <img src="images/speakers/rachana_chhajad.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Rachana+Chhajad&background=random'" alt="Dr. Rachana Chhajad">
                     </div>
                 </div>
 
@@ -339,86 +339,112 @@
         </div>
     </section>
 
-    <!-- Committee Section (Distinct Design) -->
+    <!-- Committee Section (Vertical Timeline Design) -->
     <section id="committee" class="section fdp-dark">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title" style="color: white;">Organizing Committee</h2>
+                <h2 class="section-title" style="color: white; border-color: #ec4899;">Organizing Committee</h2>
                 <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Meet the dedicated team behind this comprehensive Faculty Development Program.</p>
             </div>
             
-            <!-- Leadership Grid -->
-            <div class="grid-2" style="gap: 30px; margin-bottom: 50px;">
-                <div class="leader-card" data-aos="fade-up">
-                    <div class="leader-icon"><i class="fas fa-user-tie"></i></div>
-                    <div class="leader-info">
-                        <h4>Dr. Sudhir Nanavati</h4>
-                        <span>Patron</span>
-                        <p>President, GLSU</p>
+            <div class="timeline-wrap">
+                <!-- Center Line -->
+                <div class="timeline-line"></div>
+                <!-- Animated Progress Line -->
+                <div class="timeline-line-progress"></div>
+
+                <!-- 1. Patron (Left) -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="leader-icon" style="background: #60a5fa;"><i class="fas fa-user-tie"></i></div>
+                        <div class="leader-info">
+                            <h4 style="color: #60a5fa;">Dr. Sudhir Nanavati</h4>
+                            <span>Patron</span>
+                            <p>President, GLSU</p>
+                        </div>
                     </div>
                 </div>
-                <div class="leader-card" data-aos="fade-up">
-                    <div class="leader-icon"><i class="fas fa-user-graduate"></i></div>
-                    <div class="leader-info">
-                        <h4>Dr. Harshal A. Arolkar</h4>
-                        <span>FDP Convener</span>
-                        <p>Professor & Head, GLSU</p>
+
+                <!-- 2. Advisory Committee (Right) -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-users-cog" style="color: #60a5fa;"></i> Advisory Committee</h3>
+                        <ul>
+                            <li><strong>Dr. Chandni Kapadiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Executive Director, GLSU</span></li>
+                            <li><strong>Dr. Dharmesh Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Pro-Vost, GLSU</span></li>
+                            <li><strong>Dr. Dhruv Brahmbhatt</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Registrar, GLSU</span></li>
+                            <li><strong>Dr. Jaineel Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Registrar, GLSU</span></li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- 3. FDP Convener (Left) -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                     <div class="timeline-content">
+                        <div class="leader-icon" style="background: #60a5fa;"><i class="fas fa-user-graduate"></i></div>
+                        <div class="leader-info">
+                            <h4 style="color: #60a5fa;">Dr. Harshal A. Arolkar</h4>
+                            <span>FDP Convener</span>
+                            <p>Professor & Head, GLSU</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. FDP Coordinators (Right) -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-clipboard-check" style="color: #60a5fa;"></i> FDP Coordinators</h3>
+                        <ul>
+                             <li><strong>Dr. Madhuri Chopade</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                             <li><strong>Dr. Snehal Shukla</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Organizing Committee (Left) -->
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                         <h3><i class="fas fa-briefcase" style="color: #60a5fa;"></i> Organizing Committee</h3>
+                         <ul>
+                            <li><strong>Dr. Devarshi Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Associate Professor, GLSU</span></li>
+                            <li><strong>Dr. Krupa Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                            <li><strong>Dr. Rachana Chaudhari</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6. Technical Committee (Right) -->
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                     <div class="timeline-content">
+                         <h3><i class="fas fa-cogs" style="color: #60a5fa;"></i> Technical Committee</h3>
+                        <ul>
+                             <li><strong>Dr. Arpit Jain</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                             <li><strong>Dr. Prerna Agrawal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                             <li><strong>Dr. Jatin Modh</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7. Publicity Committee (Left) -->
+                 <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                     <div class="timeline-content">
+                         <h3><i class="fas fa-bullhorn" style="color: #60a5fa;"></i> Publicity Committee</h3>
+                        <ul>
+                             <li><strong>Dr. Jenny Kasudiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                             <li><strong>Dr. Vishal Narvani</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                             <li><strong>Dr. Dinesh Kalal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Detailed Lists -->
-             <div class="committee-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <!-- Advisory Committee -->
-                <div class="committee-box" data-aos="fade-up">
-                    <h3><i class="fas fa-users-cog"></i> Advisory Committee</h3>
-                    <ul>
-                        <li><strong>Dr. Chandni Kapadiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Executive Director, GLSU</span></li>
-                        <li><strong>Dr. Dharmesh Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Pro-Vost, GLSU</span></li>
-                        <li><strong>Dr. Dhruv Brahmbhatt</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Registrar, GLSU</span></li>
-                        <li><strong>Dr. Jaineel Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Registrar, GLSU</span></li>
-                    </ul>
-                </div>
-
-                <!-- FDP Coordinators -->
-                <div class="committee-box" data-aos="fade-up">
-                     <h3><i class="fas fa-clipboard-check"></i> FDP Coordinators</h3>
-                    <ul>
-                         <li><strong>Dr. Madhuri Chopade</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                         <li><strong>Dr. Snehal Shukla</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                    </ul>
-                </div>
-
-                <!-- Organizing Committee -->
-                <div class="committee-box" data-aos="fade-up">
-                     <h3><i class="fas fa-briefcase"></i> Organizing Committee</h3>
-                     <ul>
-                        <li><strong>Dr. Devarshi Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Associate Professor, GLSU</span></li>
-                        <li><strong>Dr. Krupa Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                        <li><strong>Dr. Rachana Chaudhari</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                    </ul>
-                </div>
-
-                <!-- Technical Committee -->
-                <div class="committee-box" data-aos="fade-up">
-                     <h3><i class="fas fa-cogs"></i> Technical Committee</h3>
-                    <ul>
-                         <li><strong>Dr. Arpit Jain</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                         <li><strong>Dr. Prerna Agrawal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                         <li><strong>Dr. Jatin Modh</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                    </ul>
-                </div>
-
-                <!-- Publicity Committee -->
-                <div class="committee-box" data-aos="fade-up">
-                     <h3><i class="fas fa-bullhorn"></i> Publicity Committee</h3>
-                    <ul>
-                         <li><strong>Dr. Jenny Kasudiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                         <li><strong>Dr. Vishal Narvani</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                         <li><strong>Dr. Dinesh Kalal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                    </ul>
-                </div>
-             </div>
         </div>
     </section>
     <div style="position: relative; margin-top: 10px;">
@@ -670,7 +696,7 @@
     </div>
 
     <!-- Registration Info Cards -->
-    <section style="background: #dee5ed; margin-top: 40px">
+    <section style="background: #dee5ed; padding: 40px 0px 50px;">
         <div class="container">
             <div class="grid-2" style="gap: 30px; margin-top: 40px;">
                 <!-- Important Dates Card -->
@@ -725,7 +751,7 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #0f172a; color: white; padding: 80px 0 40px; margin-top: 50px;">
+    <footer style="background: #0f172a; color: white; padding: 80px 0 40px;">
         <div class="container">
             <div class="grid-3" style="text-align: left; margin-bottom: 50px; gap: 50px;">
                 <!-- Brand Column -->
@@ -780,6 +806,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
