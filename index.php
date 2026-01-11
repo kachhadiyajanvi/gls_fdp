@@ -357,15 +357,12 @@
                 </div>
 
                 <!-- 4. FDP Coordinators (Right) -->
-                <div class="timeline-item right" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3><i class="fas fa-clipboard-check" style="color: #60a5fa;"></i> FDP Coordinators</h3>
-                        <ul>
-                             <li><strong>Dr. Madhuri Chopade</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                             <li><strong>Dr. Snehal Shukla</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                        </ul>
-                    </div>
+                <div class="committee-box" data-aos="fade-up">
+                     <h3><i class="fas fa-clipboard-check"></i> FDP Coordinators</h3>
+                    <ul>
+                         <li><strong>Dr. Madhuri Chopade</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                         <li><strong>Dr. Snehal Shukla</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                    </ul>
                 </div>
 
                 <!-- Publicity Committee -->

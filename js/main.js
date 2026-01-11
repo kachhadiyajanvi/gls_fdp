@@ -221,8 +221,6 @@ function showError(input, message) {
     }
 }
 
-
-
 // Modal Functions
 function showModal(type, title, message) {
     const modal = document.getElementById('messageModal');
@@ -277,55 +275,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal();
             }
         });
-    }
-});
-
-// 8. Timeline Scroll Animation
-document.addEventListener('DOMContentLoaded', () => {
-    const timelineSection = document.querySelector('#committee');
-    const timelineLine = document.querySelector('.timeline-line-progress');
-    const timelineItems = document.querySelectorAll('.timeline-item');
-
-    if (timelineSection && timelineLine) {
-        // Initial check in case already in view
-        checkTimelineScroll();
-
-        window.addEventListener('scroll', () => {
-            requestAnimationFrame(checkTimelineScroll);
-        });
-
-        function checkTimelineScroll() {
-            const sectionTop = timelineSection.offsetTop;
-            const sectionHeight = timelineSection.offsetHeight;
-            const scrollPos = window.scrollY;
-            const windowHeight = window.innerHeight;
-
-            // Start drawing when section enters viewport
-            const startPoint = sectionTop - windowHeight * 0.6;
-            const endPoint = sectionTop + sectionHeight;
-
-            let progress = 0;
-
-            if (scrollPos > startPoint) {
-                const totalDistance = sectionHeight + (windowHeight * 0.2); // Adjust text relative to section
-                progress = ((scrollPos - startPoint) / totalDistance) * 100;
-                progress = Math.min(Math.max(progress, 0), 100);
-            }
-
-            timelineLine.style.height = `${progress}%`;
-
-            // Trigger Items based on pixel depth
-            timelineItems.forEach((item) => {
-                const itemTopRelative = item.offsetTop;
-                // Line height in pixels = (progress/100) * wrapHeight
-                const wrapHeight = timelineSection.querySelector('.timeline-wrap').offsetHeight;
-                const currentLinePx = (progress / 100) * wrapHeight;
-
-                // Reveal shortly before the line hits the item
-                if (currentLinePx > itemTopRelative - 100) {
-                    item.classList.add('active');
-                }
-            });
-        }
     }
 });
