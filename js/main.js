@@ -135,11 +135,6 @@ function submitForm(event) {
             isValid = false;
             showError(input, 'Please enter a valid email');
         }
-        // Mobile (10 digits)
-        else if (val && input.name === 'mobile' && !/^\d{10}$/.test(val)) {
-            isValid = false;
-            showError(input, 'Please enter a 10-digit mobile number');
-        }
     });
 
     if (!isValid) {
@@ -168,8 +163,16 @@ function submitForm(event) {
         .then(response => response.text())
         .then(data => {
             const result = data.trim();
-            if (result === "success") {
-                showModal('success', 'Registration Successful!', 'Thank you for registering. We have received your details.');
+            if (result.startsWith("success")) {
+                const parts = result.split('|');
+                const regId = parts[1] ? parts[1] : '';
+
+                let msg = 'Thank you for registering. We have received your details.';
+                if (regId) {
+                    msg += `<br><br><strong style="font-size:1.1em; color:#2563eb;">Your Registration ID: ${regId}</strong><br><small>(Please save this ID)</small>`;
+                }
+
+                showModal('success', 'Registration Successful!', msg);
                 form.reset();
             } else if (result.includes("already registered")) {
                 const emailInput = form.querySelector('input[type="email"]');
@@ -231,7 +234,7 @@ function showModal(type, title, message) {
     if (modal) {
         // Set Content
         modalTitle.textContent = title;
-        modalMessage.textContent = message;
+        modalMessage.innerHTML = message;
 
         // Reset Classes
         modalIcon.className = 'status-icon';

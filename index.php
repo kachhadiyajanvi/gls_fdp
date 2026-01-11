@@ -16,7 +16,7 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
     <!-- Message Modal -->
@@ -346,51 +346,14 @@
                 <h2 class="section-title" style="color: white; border-color: #ec4899;">Organizing Committee</h2>
                 <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">Meet the dedicated team behind this comprehensive Faculty Development Program.</p>
             </div>
-            
-            <div class="timeline-wrap">
-                <!-- Center Line -->
-                <div class="timeline-line"></div>
-                <!-- Animated Progress Line -->
-                <div class="timeline-line-progress"></div>
-
-                <!-- 1. Patron (Left) -->
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="leader-icon" style="background: #60a5fa;"><i class="fas fa-user-tie"></i></div>
-                        <div class="leader-info">
-                            <h4 style="color: #60a5fa;">Dr. Sudhir Nanavati</h4>
-                            <span>Patron</span>
-                            <p>President, GLSU</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. Advisory Committee (Right) -->
-                <div class="timeline-item right" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3><i class="fas fa-users-cog" style="color: #60a5fa;"></i> Advisory Committee</h3>
-                        <ul>
-                            <li><strong>Dr. Chandni Kapadiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Executive Director, GLSU</span></li>
-                            <li><strong>Dr. Dharmesh Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Pro-Vost, GLSU</span></li>
-                            <li><strong>Dr. Dhruv Brahmbhatt</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Registrar, GLSU</span></li>
-                            <li><strong>Dr. Jaineel Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Registrar, GLSU</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 3. FDP Convener (Left) -->
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                     <div class="timeline-content">
-                        <div class="leader-icon" style="background: #60a5fa;"><i class="fas fa-user-graduate"></i></div>
-                        <div class="leader-info">
-                            <h4 style="color: #60a5fa;">Dr. Harshal A. Arolkar</h4>
-                            <span>FDP Convener</span>
-                            <p>Professor & Head, GLSU</p>
-                        </div>
-                    </div>
+            <!-- Detailed Lists -->
+             <div class="committee-grid">
+                
+                <div class="committee-box" data-aos="fade-up">
+                    <h3><i class="fas fa-user-tie"></i> Patron</h3>
+                    <ul>
+                        <li><strong>Dr. Sudhir Nanavati</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">President, GLSU</span></li>
+                    </ul>
                 </div>
 
                 <!-- 4. FDP Coordinators (Right) -->
@@ -405,43 +368,52 @@
                     </div>
                 </div>
 
-                <!-- 5. Organizing Committee (Left) -->
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                         <h3><i class="fas fa-briefcase" style="color: #60a5fa;"></i> Organizing Committee</h3>
-                         <ul>
-                            <li><strong>Dr. Devarshi Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Associate Professor, GLSU</span></li>
-                            <li><strong>Dr. Krupa Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                            <li><strong>Dr. Rachana Chaudhari</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                        </ul>
-                    </div>
+                <!-- Publicity Committee -->
+                <div class="committee-box" data-aos="fade-up">
+                     <h3><i class="fas fa-bullhorn"></i> Publicity Committee</h3>
+                    <ul>
+                         <li><strong>Dr. Jenny Kasudiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                         <li><strong>Dr. Vishal Narvani</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                         <li><strong>Dr. Dinesh Kalal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                    </ul>
                 </div>
 
-                <!-- 6. Technical Committee (Right) -->
-                <div class="timeline-item right" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                     <div class="timeline-content">
-                         <h3><i class="fas fa-cogs" style="color: #60a5fa;"></i> Technical Committee</h3>
-                        <ul>
-                             <li><strong>Dr. Arpit Jain</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                             <li><strong>Dr. Prerna Agrawal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                             <li><strong>Dr. Jatin Modh</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                        </ul>
-                    </div>
+                <!-- Advisory Committee -->
+                <div class="committee-box" data-aos="fade-up">
+                    <h3><i class="fas fa-users-cog"></i> Advisory Committee</h3>
+                    <ul>
+                        <li><strong>Dr. Chandni Kapadiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Executive Director, GLSU</span></li>
+                        <li><strong>Dr. Dharmesh Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Pro-Vost, GLSU</span></li>
+                        <li><strong>Dr. Dhruv Brahmbhatt</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Registrar, GLSU</span></li>
+                        <li><strong>Dr. Jaineel Shah</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Registrar, GLSU</span></li>
+                    </ul>
                 </div>
 
-                <!-- 7. Publicity Committee (Left) -->
-                 <div class="timeline-item left" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                     <div class="timeline-content">
-                         <h3><i class="fas fa-bullhorn" style="color: #60a5fa;"></i> Publicity Committee</h3>
-                        <ul>
-                             <li><strong>Dr. Jenny Kasudiya</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                             <li><strong>Dr. Vishal Narvani</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                             <li><strong>Dr. Dinesh Kalal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
-                        </ul>
-                    </div>
+                <!-- Organizing Committee -->
+                <div class="committee-box" data-aos="fade-up">
+                     <h3><i class="fas fa-briefcase"></i> Organizing Committee</h3>
+                     <ul>
+                        <li><strong>Dr. Devarshi Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Associate Professor, GLSU</span></li>
+                        <li><strong>Dr. Krupa Mehta</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                        <li><strong>Dr. Rachana Chaudhari</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                    </ul>
+                </div>
+
+                <div class="committee-box" data-aos="fade-up">
+                    <h3><i class="fas fa-user-graduate"></i> FDP Convener</h3>
+                    <ul>
+                        <li><strong>Dr. Harshal A. Arolkar</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Professor & Head, GLSU</span></li>
+                    </ul>
+                </div>
+
+                <!-- Technical Committee -->
+                <div class="committee-box" data-aos="fade-up">
+                     <h3><i class="fas fa-cogs"></i> Technical Committee</h3>
+                    <ul>
+                         <li><strong>Dr. Arpit Jain</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                         <li><strong>Dr. Prerna Agrawal</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                         <li><strong>Dr. Jatin Modh</strong><br><span style="font-size: 0.85rem; color: #cbd5e1;">Assistant Professor, GLSU</span></li>
+                    </ul>
                 </div>
 
             </div>
@@ -617,23 +589,28 @@
                     <p style="color: var(--text-light);">Secure your spot for the FDP 2026</p>
                 </div>
                 <form id="registrationForm" onsubmit="return submitForm(event)" novalidate>
-                    <div class="form-grid">
+                    <div class="form-grid-name">
                         <div class="form-group">
-                            <label>Email Address <span style="color: #ef4444;">*</span></label>
-                            <input type="email" name="email" class="form-control" required placeholder="hello@example.com">
+                            <label>First Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="first_name" class="form-control" placeholder="John" required>
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
                         </div>
                         <div class="form-group">
-                            <label>Full Name <span style="color: #ef4444;">*</span></label>
-                            <input type="text" name="name" class="form-control" required placeholder="John Doe">
+                            <label>Middle Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="middle_name" class="form-control" placeholder="Joe" required>
+                            <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Doe" required>
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
                         </div>
                     </div>
-                    
+
                     <div class="form-grid" style="margin-top: 20px;">
                         <div class="form-group">
-                            <label>Mobile Number <span style="color: #ef4444;">*</span></label>
-                            <input type="tel" name="mobile" class="form-control" required pattern="[0-9]{10}" placeholder="9876543210">
+                            <label>Email Address <span style="color: #ef4444;">*</span></label>
+                            <input type="email" name="email" class="form-control" required placeholder="hello@example.com">
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
                         </div>
                         <div class="form-group">
@@ -650,11 +627,18 @@
 
                     <div class="form-grid" style="margin-top: 20px;">
                         <div class="form-group">
-                            <label>Date of Birth <span style="color: #ef4444;">*</span></label>
-                            <input type="date" name="dob" class="form-control" required>
+                            <label>Designation <span style="color: #ef4444;">*</span></label>
+                            <select name="designation" class="form-control" required>
+                                <option value="">Select Designation</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Associate Professor">Associate Professor</option>
+                                <option value="Assistant Professor">Assistant Professor</option>
+                                <option value="Research Scholar">Research Scholar</option>
+                                <option value="Industry Person">Industry Person</option>
+                            </select>
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
                         </div>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label>Experience (Years) <span style="color: #ef4444;">*</span></label>
                             <input type="number" name="experience" class="form-control" step="0.5" required>
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
@@ -663,7 +647,7 @@
 
                     <div class="form-grid" style="margin-top: 20px;">
                         <div class="form-group">
-                            <label>Institute Name <span style="color: #ef4444;">*</span></label>
+                            <label>Institute Name/ Company Name <span style="color: #ef4444;">*</span></label>
                             <input type="text" name="institute" class="form-control" required>
                             <small class="field-error" style="color: #ef4444; display: none; margin-top: 5px; font-weight: 500;"></small>
                         </div>
@@ -806,6 +790,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/main.js?v=2"></script>
+    <script src="js/main.js?v=3"></script>
 </body>
 </html>
