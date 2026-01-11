@@ -382,6 +382,12 @@ body {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 
+.form-grid-name {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -452,7 +458,9 @@ body {
         -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     }
 
-
+    .form-grid-name {
+        grid-template-columns: 1fr;
+    }
 
     .form-grid {
         grid-template-columns: 1fr;
@@ -945,80 +953,158 @@ body {
     overflow: hidden;
 }
 
-.leader-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s;
+/* Committee Card Unification - Premium Glass Style */
+.leader-card,
+.committee-box {
+    background: rgba(25, 33, 50, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow: hidden;
+    /* For gradient border */
 }
 
-.leader-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
+/* Gradient Top Border Effect */
+.leader-card::before,
+.committee-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.leader-card:hover,
+.committee-box:hover {
+    background: rgba(30, 41, 59, 0.8);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Leader Specifics */
+.leader-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .leader-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--primary-color);
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background: rgba(236, 72, 153, 0.15);
+    /* Pink Tint */
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    color: white;
+    font-size: 1.8rem;
+    color: #ec4899;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+    border: 1px solid rgba(236, 72, 153, 0.2);
+    transition: transform 0.3s;
+}
+
+.leader-card:hover .leader-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .leader-info h4 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 5px;
     font-family: 'Space Grotesk';
+    background: linear-gradient(90deg, #ec4899, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
 .leader-info span {
     color: #94a3b8;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
 }
 
 .leader-info p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #cbd5e1;
     margin-top: 5px;
 }
 
 .committee-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    column-count: 3;
+    column-gap: 30px;
 }
 
+/* Committee Box Specifics */
 .committee-box {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s;
+    display: inline-block;
+    /* Essential for column-count to respect breaks */
+    width: 100%;
+    margin-bottom: 30px;
+    /* Space between vertical items */
+    break-inside: avoid;
+    break-after: always;
+    /* Helps prevent weird splitting */
+    min-width: 0;
 }
 
-.committee-box:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
+/* Mobile Responsive for Grid */
+@media (max-width: 991px) {
+    .committee-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .committee-grid {
+        column-count: 1;
+    }
 }
 
 .committee-box h3 {
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #60a5fa;
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    font-weight: 600;
+}
+
+/* Badge Icons in Committee Box */
+.committee-box h3 i {
+    width: 50px;
+    height: 50px;
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.2);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    transition: transform 0.3s;
+}
+
+.committee-box:hover h3 i {
+    transform: scale(1.1) rotate(10deg);
 }
 
 .committee-box ul {
@@ -1027,9 +1113,17 @@ body {
 }
 
 .committee-box li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
     color: #e2e8f0;
+    font-size: 1rem;
+    transition: padding-left 0.3s;
+}
+
+.committee-box li:hover {
+    padding-left: 10px;
+    color: white;
+    border-bottom-color: rgba(96, 165, 250, 0.3);
 }
 
 .committee-box li:last-child {
