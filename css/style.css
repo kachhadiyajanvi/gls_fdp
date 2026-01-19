@@ -1372,98 +1372,77 @@ body {
 /* Horizontal Speaker Card Design (Reference Image Style) */
 .speakerGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    /* Increased gap for better spacing */
 }
 
-.speaker-horizontal {
+/* Vertical Speaker Card (New Request) */
+.speaker-vertical {
     background: #fff1f2;
-    /* Light pinkish background default, or pastel */
     border-radius: 20px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    /* Vertical Stacking */
+    align-items: center;
+    /* Center Content */
+    text-align: center;
     overflow: hidden;
     padding: 30px;
-    /* Internal padding */
     gap: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid transparent;
+    height: 100%;
+    /* Ensure equal height in grid */
 }
 
-.speaker-horizontal.variant-blue {
+.speaker-vertical.variant-blue {
     background: #eff6ff;
-    /* Pale blue */
 }
 
-.speaker-horizontal.variant-pink {
+.speaker-vertical.variant-pink {
     background: #fdf2f8;
-    /* Pale pink */
 }
 
-.speaker-horizontal:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+.speaker-vertical:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     border-color: rgba(0, 0, 0, 0.05);
 }
 
-.speaker-content-left {
-    flex: 1;
-    text-align: left;
-}
-
-.speaker-content-left h3 {
-    font-size: 22px;
-    color: #334155;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.speaker-content-left p {
-    font-size: 16px;
-    color: #64748b;
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.speaker-image-right {
-    flex: 0 0 50%;
-    /* Fixed width for image container */
-    max-height: 200px;
-    height: 100%;
-    max-width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    outline: 1px solid var(--primary-color);
+.speaker-vertical .speaker-image-container {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    outline-offset: 5px;
+    margin: 0 auto;
+    padding: 5px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.speaker-image-right img {
+.speaker-vertical img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Or cover if it's a photo */
     border-radius: 50%;
-    /* Circle image or illustration style */
 }
 
-.speaker-email {
-    font-size: 16px;
+.speaker-vertical h3 {
+    font-size: 1.3rem;
+    color: #334155;
+    font-weight: 700;
+}
+
+.speaker-vertical p {
+    font-size: 0.95rem;
     color: #64748b;
-    text-decoration: none;
     line-height: 1.4;
 }
 
-@media (max-width: 768px) {
-    .speaker-horizontal {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .speaker-content-left {
-        text-align: center;
-    }
+/* Keep Horizontal for backup/reference if needed, or remove if unused */
+.speaker-horizontal {
+    display: none;
+    /* Hiding old style to ensure clean switch */
 }
 
 /* Custom Form Validation Styles */
